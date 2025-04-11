@@ -1,6 +1,6 @@
 FROM public.ecr.aws/blinkit/public.ecr.aws/docker/library/node:22.14.0
 
-WORKDIR /home/app
-COPY . /home/app
+COPY . /home/devexhiringtest
+WORKDIR /home/devexhiringtest
 
-ENTRYPOINT ["node", "./server.js"]
+ENTRYPOINT ["node", "./app/src/server.js"]
