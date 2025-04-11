@@ -2,14 +2,14 @@ resource "aws_eks_cluster" "cluster" {
   name     = var.eks_cluster_name
   role_arn = aws_iam_role.cluster.arn
 
-  bootstrap_self_managed_adons = false
+  bootstrap_self_managed_addons = false
 
   enabled_cluster_log_types = [
     "api",
     "audit",
-    "authentication",
+    "authenticator",
     "controllerManager",
-    "scheduler"
+    "scheduler",
   ]
 
   vpc_config {
