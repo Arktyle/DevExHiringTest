@@ -1,28 +1,28 @@
 resource "aws_eks_cluster" "cluster" {
-    name = var.eks_cluster_name
-    role_arn = aws_iam_role.eks_cluster.arn
+  name     = var.eks_cluster_name
+  role_arn = aws_iam_role.eks_cluster.arn
 
-    bootstrap_self_managed_adons = false
+  bootstrap_self_managed_adons = false
 
-    enabled_cluster_log_types = [
-        "api",
-        "audit",
-        "authentication",
-        "controllerManager",
-        "scheduler"
-    ]
+  enabled_cluster_log_types = [
+    "api",
+    "audit",
+    "authentication",
+    "controllerManager",
+    "scheduler"
+  ]
 
-    vpc_config {
-        subnet_ids = var.eks_cluster_subnet_ids
-        //security_groups_ids = []
+  vpc_config {
+    subnet_ids = var.eks_cluster_subnet_ids
+    //security_groups_ids = []
 
-        endpoint_private_access = true
-        endpoint_public_access = false
-    }
+    endpoint_private_access = true
+    endpoint_public_access  = false
+  }
 
-    version = var.eks_cluster_version
+  version = var.eks_cluster_version
 
-    tags = {
-        Name = var.eks_cluster_name
-    }
+  tags = {
+    Name = var.eks_cluster_name
+  }
 }
